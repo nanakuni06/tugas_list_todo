@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTodo } from '../redux/actions/todo-action'
+import { deleteTodo, getTodo } from '../redux/actions/todo-action'
 
 function TodoList() {
   const dispatch = useDispatch()
@@ -10,6 +10,13 @@ function TodoList() {
   useEffect(() => {
     dispatch(getTodo())
   }, []);
+
+  const handleDelete = (todoId) => {
+    const confirmed = window.confirm("Apakah anda yakin akan menghapus?")
+    if(confirmed) {
+      dispatch(deleteTodo(todoId))
+    }
+  }
 
   return (
     <div>
@@ -21,7 +28,7 @@ function TodoList() {
             <span>{todo.value}</span>
             <div>
               <button>✏️</button>
-              <button>❌</button>
+              <button onClick={() => handleDelete(todo.id)}>❌</button>
             </div>
           </div>
         ))

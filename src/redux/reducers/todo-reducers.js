@@ -17,7 +17,13 @@ function todoRecucer(state = initialValue, action){
                 isLoading: false,
                 todos: action.payload
             }
-        default: return state
+        case "DELETE_TODO":
+            return{
+                ...state,
+                isLoading: false,
+                todos: state.todos.filter(todo => todo.id !== action.payload)
+            }
+        default: return state;
     }
 }
 

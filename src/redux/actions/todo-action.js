@@ -24,9 +24,17 @@ export function getTodo(){
 }
 
 export const addTodo = (newTodo) => async (dispatch) => {
-    dispatch(startFetching())
+    dispatch(startFacthing());
 
     await axios.post("https://6539340ce3b530c8d9e81ae7.mockapi.io/api/v1/user", newTodo)
+
+    dispatch(getTodo());
+}
+
+export const deleteTodo = (todoId) => async (dispatch) => {
+    dispatch(startFacthing());
+
+    await axios.delete(`https://6539340ce3b530c8d9e81ae7.mockapi.io/api/v1/user/${todoId}`  );
 
     dispatch(getTodo())
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/actions/todo-action'
 
 function TodoInput() {
   const dispatch = useDispatch()
@@ -13,6 +14,7 @@ function TodoInput() {
       status: false
     }
     dispatch(addTodo(newTodo))
+    setInput("")
   }
   return (
     <>
