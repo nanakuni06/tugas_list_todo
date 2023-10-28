@@ -38,3 +38,11 @@ export const deleteTodo = (todoId) => async (dispatch) => {
 
     dispatch(getTodo())
 }
+
+export const editTodo = (todoId, editValue) => async (dispatch) => {
+    dispatch(startFacthing());
+
+    await axios.put(`https://6539340ce3b530c8d9e81ae7.mockapi.io/api/v1/user/${todoId}`, {value:editValue});
+
+    dispatch(getTodo())
+}

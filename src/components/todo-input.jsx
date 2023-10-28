@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addTodo } from '../redux/actions/todo-action'
+import { addTodo, editTodo } from '../redux/actions/todo-action'
 
 function TodoInput() {
   const dispatch = useDispatch()
   const [input, setInput] = useState("")
+
+  const [editId, setEditId] = useState(null);
+  const [editValue, setEditValue] = useState("")
+  const [isEdit, setIsEdit] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -16,6 +20,29 @@ function TodoInput() {
     dispatch(addTodo(newTodo))
     setInput("")
   }
+
+  const handleEdit = (todoId, todoValue) => {
+    setEditId(todoId);
+    setEditValue(todoValue);
+    setIsEdit(true);
+  };
+
+  const handleCancelEdit = () => {
+    setEditId(null);
+    setEditValue("");
+    setIsEdit(false);
+  };
+
+  const handleSaveEdit = () => {
+    if(editValue.trim() !== ""){
+      dispatch(editTodo(editId, editValue));
+      setEditId(null);
+      setEditValue("");
+      setIsEdit(false);
+    }
+  };
+
+
   return (
     <>
     <div className='text-center'>
