@@ -7,7 +7,7 @@ function Todo() {
   return (
     <>
     <div className='item-center justify-center '>
-      <div className="p-8 my-20 mx-0 w-100 md:-8 lg:my-20 lg:mx-80 rounded-xl bg-violet-400 shadow-xl"> 
+      <div className="p-8 my-20 mx-0 w-100 md:-8 lg:my-20 lg:mx-80 rounded-xl bg-violet-400 shadow-xl body-font font-poppins"> 
 
         <TodoInput/>
 
