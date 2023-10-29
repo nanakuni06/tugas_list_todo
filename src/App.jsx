@@ -4,7 +4,6 @@ import Todo from "./pages/todo"
 function App() {
   return (
     <>
-      <Navbar/>
       <Todo/>
     </>
   )

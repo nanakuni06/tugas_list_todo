@@ -50,8 +50,8 @@ function TodoInput() {
     </div>
     <div className='py-5'>
       <form className='flex gap-2'>
-        <input type="text" className='p-2 w-full border-solid border-black border-2 rounded-xl' placeholder='Input Your List' value={input} onChange={(e) => setInput(e.target.value)}/>
-        <button className='p-2 border-solid border-black border-2 rounded-lg' onClick={handleClick}>Add</button>
+        <input type="text" className='px-4 py-2 w-full border-solid border-black border-2 rounded-xl bg-slate-50' placeholder='Input Your List' value={input} onChange={(e) => setInput(e.target.value)}/>
+        <button className='p-2 border-solid border-black border-2 rounded-lg bg-blue-400 hover:bg-blue-500' onClick={handleClick}>Add</button>
       </form>
     </div>
     </>
